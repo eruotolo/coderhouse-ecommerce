@@ -4,9 +4,9 @@ import Logo from '/logo.svg';
 
 const NavBar = () => {
     return (
-        <header className="h-[100px]">
+        <header className="h-[121px]">
             <div className="container">
-                <div className="flex items-center justify-between border-b-[1px] border-[#172983] pb-[10px]">
+                <div className="flex items-center justify-between border-b-[1px] border-[#172983] h-[70px]">
                     <div className="w-2/12 flex">
                         <a href="#" className="uppercase text-[12px] text-[#172983]">
                             ¿Necesitas Ayuda?
@@ -20,7 +20,7 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center">
+            <div className="container flex items-center justify-center h-[51px]">
                 <ul className="flex items-center justify-between">
                     <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1]">
                         MUJERES
@@ -34,10 +34,10 @@ const NavBar = () => {
                     <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1]">
                         MARCAS
                     </li>
-                    <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1]">
+                    <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#d23232] hover:text-[#8e99d1]">
                         SALE
                     </li>
-                    <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1]">
+                    <li className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#d23232] hover:text-[#8e99d1]">
                         OUTLET
                     </li>
                 </ul>
