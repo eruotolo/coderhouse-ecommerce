@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import QuantityButton from '../QuantityButton/QuantityButton.jsx';
 
 const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div className="grid grid-cols-2 mt-[60px]">
             <div className="col-span-1 flex justify-end">
@@ -26,7 +29,7 @@ const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
                     <p className="text-[16px] leading-[25px] text-[rgb(153,153,153)] my-[20px] ml-[20px] line-through">
                         $ {precio.toFixed(2)}
                     </p>
-                    <p className="bg-[#D23232] my-[20px] ml-[20px] text-[12px] leading-[25px] text-[#ffffff] px-[10px]">
+                    <p className="bg-[#D23232] my-[20px] ml-[20px] text-[12px] leading-[28px] text-[#ffffff] px-[10px]">
                         ¡Ahorrá un 20%!
                     </p>
                 </div>
@@ -82,6 +85,9 @@ const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
                             />
                         </svg>
                     </Link>
+
+                    <QuantityButton stock={stock} />
+
                     <Link
                         to="/"
                         className="border-[1px] border-[#EDEDED] h-[50px] w-[250px] flex justify-center items-center text-[16px] bg-[#172983] text-[#ffffff] hover:bg-[#2F3C92] hover:text-[#ffffff] ml-[10px]"
@@ -119,7 +125,10 @@ const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
                             d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
                         />
                     </svg>
-                    <p className="text-[12px] font-bold text-[#333333] ml-[10px]">
+                    <p
+                        className="text-[12px] font-bold text-[#333333] ml-[10px] cursor-pointer"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
                         MÉTODOS Y COSTOS DE ENVÍO
                     </p>
                     <svg
@@ -128,7 +137,8 @@ const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="size-4 ml-[210px]"
+                        className="size-4 ml-[210px] cursor-pointer"
+                        onClick={() => setIsOpen(!isOpen)}
                     >
                         <path
                             strokeLinecap="round"
@@ -137,6 +147,14 @@ const ItemDetail = ({ nombre, precio, img, stock, categoria, descripcion }) => {
                         />
                     </svg>
                 </div>
+                {isOpen && (
+                    <div className="mt-[5px] flex flex-col items-start transition-shadow">
+                        <p className="text-[#333333] text-[12px] font-bold">DAC:</p>
+                        <p className="text-[#333333] text-[11px] font-normal">
+                            Envío sin costo en compras mayores a $ 2.000 | Costo normal: $ 200.
+                        </p>
+                    </div>
+                )}
 
                 <p className="font-[700] text-[12px] leading-[20px] mb-[5px] mt-[30px]">
                     CARACTERÍSTICAS
