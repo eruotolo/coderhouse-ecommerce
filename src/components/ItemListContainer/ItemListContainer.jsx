@@ -1,20 +1,32 @@
 import React, { useEffect } from 'react';
-import { getProducts } from '../../data/asyncMock.jsx';
+import { getProductByCategory, getProducts } from '../../data/asyncMock.jsx';
 import ItemList from '../ItemList/ItemList.jsx';
+import { useParams } from 'react-router-dom';
+import { PropagateLoader } from 'react-spinners';
 
 const ItemListContainer = () => {
     const [products, setProducts] = React.useState([]);
-    console.log(products);
+    const { categoryId } = useParams();
+    const [loading, setLoading] = React.useState(true);
 
     useEffect(() => {
-        getProducts()
-            .then((res) => setProducts(res))
-            .catch((err) => console.log(err));
-    });
+        setLoading(true);
+        const dataProductos = categoryId ? getProductByCategory(categoryId) : getProducts();
+        dataProductos
+            .then((data) => setProducts(data))
+            .catch((err) => console.log(err))
+            .finally(() => setLoading(false));
+    }, [categoryId]);
 
     return (
         <div className="container mx-auto">
-            <ItemList products={products} />
+            {loading ? (
+                <div className="flex justify-center items-center h-[70vh]">
+                    <PropagateLoader color="#172983" />
+                </div>
+            ) : (
+                <ItemList products={products} />
+            )}
         </div>
     );
 };
