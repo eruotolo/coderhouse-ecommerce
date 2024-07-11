@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getProductById } from '../../data/asyncMock.jsx';
 import { PropagateLoader } from 'react-spinners';
 import ItemDetail from '../ItemDetail/ItemDetail.jsx';
@@ -9,12 +9,21 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const { productId } = useParams();
 
-    console.log(productId);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getProductById(productId)
-            .then((data) => setProducto(data))
-            .catch((error) => console.log(error))
+            .then((data) => {
+                if (!data) {
+                    navigate('/*');
+                } else {
+                    setProducto(data);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                navigate('/*');
+            })
             .finally(() => setLoading(false));
     }, []);
 

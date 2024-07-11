@@ -28,12 +28,26 @@ const NavBar = () => {
             <div className="container flex items-center justify-center h-[51px]">
                 <ul className="flex items-center justify-between">
                     <li
-                        className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1]"
+                        className="pl-[10px] pr-[10px] font-[600] text-[14px] leading-[50px] uppercase cursor-pointer text-[#172983] hover:text-[#8e99d1] flex"
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        HOMBRES
+                        HOMBRES{' '}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="size-6 w-[12px] h-[51px] ml-[5px] "
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                            />
+                        </svg>
                         {isOpen && (
-                            <ul className="block absolute bg-[#FFFFFF] min-w-[160px] p-[16px] z-10">
+                            <ul className="block absolute bg-[#FFFFFF] min-w-[160px] p-[16px] z-10 mt-[40px] border-[#ededed] border-[1px]">
                                 <li>
                                     <Link to="/category/camisetas">Camisetas</Link>
                                 </li>
