@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer.jsx';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import PageNotFound from './components/PageNotFound/PageNotFound.jsx';
 import { CartContextProvider } from './context/CartContext.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         <Route path="/" element={<ItemListContainer />} />
                         <Route path="/category/:categoryId" element={<ItemListContainer />} />
                         <Route path="/product/:productId" element={<ItemDetailContainer />} />
+                        <Route path="/cart" element={<Cart />} />
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
                     <Footer />
