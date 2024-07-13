@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import PageNotFound from './components/PageNotFound/PageNotFound.jsx';
 import { CartContextProvider } from './context/CartContext.jsx';
 import Cart from './components/Cart/Cart.jsx';
+import Checkout from './components/Checkout/Checkout.jsx';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <Route path="/category/:categoryId" element={<ItemListContainer />} />
                         <Route path="/product/:productId" element={<ItemDetailContainer />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/checkout" element={<Checkout />} />
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
                     <Footer />

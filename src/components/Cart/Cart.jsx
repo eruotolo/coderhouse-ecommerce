@@ -102,7 +102,7 @@ const Cart = () => {
                     </div>
                     <div className="flex items-center h-[50px] justify-center mt-[30px]">
                         <Link
-                            to=""
+                            to="/Checkout"
                             className="border-[1px] border-[#EDEDED] h-[50px] w-[250px] flex justify-center items-center text-[16px] bg-[#172983] text-[#ffffff] hover:bg-[#2F3C92] hover:text-[#ffffff] ml-[10px]"
                         >
                             Comprar
